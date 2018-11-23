@@ -25,10 +25,3 @@ Error: <strong>@ViewBag.Error</strong>
         <input type="submit" value="Get token" />
     }
 }
-
-@if (ViewBag.Code == "none")
-{
-    using (Html.BeginForm())
-    {
-        <input type="submit" value="Get token" />
-    }

@@ -20,11 +20,11 @@ namespace MvcCodeFlowClientManual
             //     defaults: new { controller = "App", action = "Unauthorised", id = UrlParameter.Optional }
             //);
 
-            routes.MapRoute(
-                "ErrorHandler",
-                "Error/{action}/{errMsg}",
-                new { controller = "Error", action = "Index", errMsg = UrlParameter.Optional }
-            );
+            //routes.MapRoute(
+            //    "ErrorHandler",
+            //    "Error/{action}/{errMsg}",
+            //    new { controller = "Error", action = "Index", errMsg = UrlParameter.Optional }
+            //);
         }
     }
 }
