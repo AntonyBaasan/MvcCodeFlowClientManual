@@ -47,6 +47,8 @@
     <br />
     @(DateTime.Now.AddSeconds(Model.RefreshTokenExpiresIn).ToString())
     @((Model.RefreshTokenExpiresIn).ToString())
-
-  
 </p>
+
+<script>
+    window.postMessage(@Model.Json);
+</script>
