@@ -58,7 +58,7 @@
    whenRNPostMessageReady(function() {
                  postMessage(JSON.parse(
                      `{
-                        token: @ViewBag.AccessToken
+                        "accessToken": "@ViewBag.AccessToken"
                      }`
                ));
             })();
