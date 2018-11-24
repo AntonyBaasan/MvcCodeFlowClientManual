@@ -50,12 +50,34 @@
 </p>
 
 <script>
-    function RNPostMessage(message) {
-      if (window.postMessage.length === 1) {
-        window.postMessage(message);
-        alert('hello world');
+    function awaitPostMessage() {
+  let isReactNativePostMessageReady = !!window.originalPostMessage;
+  const queue = [];
+  let currentPostMessageFn = function store(message) {
+    if (queue.length > 100) queue.shift();
+    queue.push(message);
+  };
+  if (!isReactNativePostMessageReady) {
+    // const originalPostMessage = window.postMessage;
+    Object.defineProperty(window, 'postMessage', {
+      configurable: true,
+      enumerable: true,
+      get() {
+        return currentPostMessageFn;
+      },
+      set(fn) {
+        currentPostMessageFn = fn;
+        isReactNativePostMessageReady = true;
+        setTimeout(sendQueue, 200);
       }
-      else setTimeout(RNPostMessage.bind(null, message), 2000);
-    }
-    RNPostMessage("hello world from MVC");
+    });
+  }
+
+  function sendQueue() {
+    while (queue.length > 0) window.postMessage(queue.shift());
+  }
+}
+awaitPostMessage();
+window.postMessage('Once :) ');
+window.postMessage('Twice :) ');
 </script>
