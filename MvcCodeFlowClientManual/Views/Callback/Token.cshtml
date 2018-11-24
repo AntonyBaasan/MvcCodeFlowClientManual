@@ -56,7 +56,8 @@
                 else setTimeout(function() { whenRNPostMessageReady(cb) }, 100);
               }
    whenRNPostMessageReady(function() {
-                 postMessage(JSON.parse(`@Model.Json.ToString()`);
+                 postMessage(JSON.parse(@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model,
+Newtonsoft.Json.Formatting.Indented)));
                });
             })();
 </script>
