@@ -57,11 +57,11 @@
         }
 
         whenRNPostMessageReady(function() {
-                 postMessage(JSON.parse(
+                 postMessage(
                      `{
                         "accessToken": "@ViewBag.AccessToken"
                      }`
-               ));
+               );
         });
 })();
 </script>
