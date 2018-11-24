@@ -56,8 +56,10 @@
                 else setTimeout(function() { whenRNPostMessageReady(cb) }, 100);
               }
    whenRNPostMessageReady(function() {
-                 postMessage(JSON.parse(@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model,
-Newtonsoft.Json.Formatting.Indented)));
-               });
+                 postMessage(JSON.parse(
+                     `{
+                        token: @ViewBag.AccessToken
+                     }`
+               ));
             })();
 </script>
