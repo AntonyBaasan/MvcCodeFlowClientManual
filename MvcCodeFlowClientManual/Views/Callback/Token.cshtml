@@ -51,15 +51,17 @@
 
 <script>
 (function ready() {
-              function whenRNPostMessageReady(cb) {
-                if (postMessage.length === 1) cb();
-                else setTimeout(function() { whenRNPostMessageReady(cb) }, 100);
-              }
-   whenRNPostMessageReady(function() {
+    function whenRNPostMessageReady(cb) {
+        if (postMessage.length === 1) cb();
+            else setTimeout(function() { whenRNPostMessageReady(cb) }, 100);
+        }
+
+        whenRNPostMessageReady(function() {
                  postMessage(JSON.parse(
                      `{
                         "accessToken": "@ViewBag.AccessToken"
                      }`
                ));
-            })();
+        });
+})();
 </script>
