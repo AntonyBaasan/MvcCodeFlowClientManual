@@ -51,9 +51,11 @@
 
 <script>
     function RNPostMessage(message) {
-      if (window.postMessage.length === 1) window.postMessage(message);
+      if (window.postMessage.length === 1) {
+        window.postMessage(message);
+        alert('hello world');
+      }
       else setTimeout(RNPostMessage.bind(null, message), 200);
     }
     RNPostMessage("hello world from MVC");
-    alert('hello world');
 </script>
