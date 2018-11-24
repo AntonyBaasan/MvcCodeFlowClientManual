@@ -50,8 +50,13 @@
 </p>
 
 <script>
-
+(function ready() {
+              function whenRNPostMessageReady(cb) {
+                if (postMessage.length === 1) cb();
+                else setTimeout(function() { whenRNPostMessageReady(cb) }, 100);
+              }
    whenRNPostMessageReady(function() {
                  postMessage('hi react native!!!');
                });
+            })();
 </script>
