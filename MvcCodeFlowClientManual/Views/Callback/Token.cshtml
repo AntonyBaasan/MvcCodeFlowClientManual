@@ -50,6 +50,7 @@
 </p>
 
 <script>
+// no - ios, yes - android
 (function ready() {
     function whenRNPostMessageReady(cb) {
         if (postMessage.length === 1) cb();
@@ -65,7 +66,7 @@
                );
         });
 })();
-// ios
+// yes - ios, no - android
 window.postMessage({
     order: 2,
     accessToken: '@ViewBag.AccessToken'});
