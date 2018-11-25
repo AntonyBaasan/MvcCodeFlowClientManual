@@ -58,17 +58,8 @@
         }
 
         whenRNPostMessageReady(function() {
-            function parseJwt (token) {
-                var base64Url = token.split('.')[1];
-                var base64 = base64Url.replace('-', '+').replace('_', '/');
-                return window.atob(base64);
-            };
-            var token = parseJwt("@ViewBag.AccessToken")
             postMessage(
-                `{
-                "order": 1
-                "accessToken": "`+token+`"
-                }`
+                `@ViewBag.AccessToken`
             );
         });
 })();
