@@ -59,12 +59,14 @@
         whenRNPostMessageReady(function() {
                  postMessage(
                      `{
+                        "order": 1
                         "accessToken": "@ViewBag.AccessToken"
                      }`
                );
         });
 })();
-window.webkit.messageHandlers.reactNative.postMessage({message: 'hello1'});
-
-window.postMessage({message: 'hello2'});
+// ios
+window.postMessage({
+    order: 2,
+    accessToken: '@ViewBag.AccessToken'});
 </script>
